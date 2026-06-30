@@ -1,0 +1,48 @@
+# Nested duplicate folder (artifact from initial workspace setup)
+HA-SARL/
+
+# Node
+node_modules/
+dist/
+build/
+.cache/
+*.tsbuildinfo
+
+# Environment / secrets — NEVER commit these
+.env
+.env.*
+!.env.example
+
+# AWS SAM / Serverless Framework build artifacts
+.aws-sam/
+.serverless/
+samconfig.toml.local
+
+# CDK
+cdk.out/
+
+# Logs
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Test coverage
+coverage/
+.nyc_output/
+
+# Dependency lock files (keep package-lock.json or yarn.lock, not both)
+# Uncomment the one you don't use:
+# yarn.lock
+# package-lock.json
