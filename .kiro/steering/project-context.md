@@ -66,17 +66,31 @@ A React Native (Expo) mobile app is planned for a LATER phase and must reuse the
    - Keep cost near zero; use OIDC federation rather than stored AWS keys where possible.
 4. Then proceed to the spec `tasks.md` and implementation.
 
-## Open questions to confirm with the user
+## Confirmed decisions
 
-- Personal GitHub username + email for commit attribution.
-- AWS region (e.g. eu-west-1 Ireland, eu-west-3 Paris, us-east-1).
-- AWS auth: personal access keys vs. IAM Identity Center (SSO).
-- CI/CD preference: AWS CodePipeline vs. GitHub Actions + OIDC.
-- Postgres host choice: Neon / Supabase / RDS free tier.
+- **GitHub**: username `chiekhahmd`, email `chiekhahmd@gmail.com`, repo `chiekhahmd/HA-SARL` (SSH).
+- **AWS region**: eu-west-3 (Paris).
+- **Multi-tenancy**: Database-per-tenant on shared RDS instance. Shared Lambda/API/Cognito.
+- **Database**: RDS PostgreSQL db.t3.micro (free tier), one DB per tenant. Aurora Serverless v2 later.
+- **Tenant registry**: DynamoDB (config, branding, modules per tenant).
+- **Auth**: Shared Cognito User Pool with `custom:tenant_id` and `custom:role` attributes.
+- **CI/CD**: GitHub Actions + OIDC (no stored AWS keys).
+- **IaC**: AWS CDK (TypeScript) — handles Lambda, RDS, VPC, and any future resource.
+- **API framework**: Hono (single Lambda with internal routing + separate Lambda for cron).
+- **ORM**: Drizzle ORM.
+- **Validation**: Zod + @hono/zod-validator.
+- **Testing**: Vitest.
+- **Frontend**: Config-driven (branding, module toggles, locale, currency per tenant).
+- **Custom domains**: Each tenant has their own domain → shared CloudFront distribution.
+- **Customization roadmap**: Phase 1 = branding + modules. Phase 2 = custom fields (JSONB). Phase 3 = custom workflows.
 
 ## Current state
 
-- Only `.kiro/` exists in the repo (spec + this steering file). No application code yet.
-- `requirements.md` is drafted; `design.md` and `tasks.md` not yet created.
+- Git initialized, first commit pushed to `origin/main` on GitHub.
+- `requirements.md` is complete (16 EARS requirements).
+- `design.md` is complete (multi-tenant SaaS architecture with Hono + CDK).
+- `tasks.md` is complete (30 tasks covering infra through frontend).
+- Client overview document created (`docs/client-overview.md`).
+- No application code yet — ready to begin implementation.
 - The user intends to adjust requirement details (absence overlap, project deletion rules,
   date-effective cost rate) once development starts.

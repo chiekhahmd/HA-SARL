@@ -1,0 +1,25 @@
+{
+  "name": "@society-erp/scheduled",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Scheduled Lambda — insurance renewal checker",
+  "main": "dist/insurance-renewal.js",
+  "scripts": {
+    "build": "esbuild src/insurance-renewal.ts --bundle --platform=node --target=node20 --outfile=dist/insurance-renewal.js --external:@aws-sdk/*",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.600.0",
+    "@aws-sdk/client-secrets-manager": "^3.600.0",
+    "@aws-sdk/client-ses": "^3.600.0",
+    "@aws-sdk/lib-dynamodb": "^3.600.0",
+    "drizzle-orm": "^0.33.0",
+    "postgres": "^3.4.0"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.140",
+    "@types/node": "^26.1.0",
+    "esbuild": "^0.23.0",
+    "tsx": "^4.16.0"
+  }
+}

@@ -13,13 +13,14 @@ build/
 .env.*
 !.env.example
 
-# AWS SAM / Serverless Framework build artifacts
+# AWS CDK
+cdk.out/
+cdk.context.json
+
+# AWS SAM (legacy, in case)
 .aws-sam/
 .serverless/
 samconfig.toml.local
-
-# CDK
-cdk.out/
 
 # Logs
 *.log
@@ -42,7 +43,9 @@ Thumbs.db
 coverage/
 .nyc_output/
 
-# Dependency lock files (keep package-lock.json or yarn.lock, not both)
-# Uncomment the one you don't use:
-# yarn.lock
-# package-lock.json
+# Vite
+packages/web/dist/
+
+# esbuild output
+packages/api/dist/
+packages/scheduled/dist/
