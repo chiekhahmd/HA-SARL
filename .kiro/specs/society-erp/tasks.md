@@ -33,12 +33,12 @@
 
 ## Task 4: Database Schema & Migrations
 
-- [ ] 4.1 Create Drizzle schema file (`packages/api/src/db/schema.ts`) matching design section 5
-- [ ] 4.2 Configure Drizzle Kit for migration generation (`drizzle.config.ts`)
-- [ ] 4.3 Generate initial migration (all tables: users, projects, workers, cost_rate_history, time_entries, absences, materials, material_allocations, vehicles, insurance_periods)
-- [ ] 4.4 Create migration runner script that targets a specific database by name
-- [ ] 4.5 Create seed script (`packages/api/src/db/seed.ts`) for new tenant defaults
-- [ ] 4.6 Write unit tests for schema validation (Zod schemas match Drizzle schema types)
+- [x] 4.1 Create Drizzle schema file (`packages/api/src/db/schema.ts`) matching design section 5
+- [x] 4.2 Configure Drizzle Kit for migration generation (`drizzle.config.ts`)
+- [x] 4.3 Generate initial migration (all tables: users, projects, workers, cost_rate_history, time_entries, absences, materials, material_allocations, vehicles, insurance_periods)
+- [x] 4.4 Create migration runner script that targets a specific database by name
+- [x] 4.5 Create seed script (`packages/api/src/db/seed.ts`) for new tenant defaults
+- [x] 4.6 Write unit tests for schema validation (Zod schemas match Drizzle schema types)
 
 ## Task 5: Tenant Resolution & Multi-Tenancy Core
 
