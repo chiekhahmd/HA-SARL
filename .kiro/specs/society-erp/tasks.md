@@ -14,15 +14,15 @@
 
 ## Task 2: CDK Infrastructure — Foundation Stacks
 
-- [ ] 2.1 Create `network-stack.ts` — VPC with 2 AZs, public + private subnets, security groups for RDS
-- [ ] 2.2 Create `database-stack.ts` — RDS PostgreSQL 16 db.t3.micro instance, Secrets Manager for master credentials
-- [ ] 2.3 Create `auth-stack.ts` — Cognito User Pool with custom attributes (`custom:tenant_id`, `custom:role`), app client
-- [ ] 2.4 Create `tenant-registry-stack.ts` — DynamoDB table (partition key: `tenant_id`)
-- [ ] 2.5 Create `api-stack.ts` — Lambda function (placeholder handler), API Gateway HTTP API with `/{proxy+}` route
-- [ ] 2.6 Create `scheduler-stack.ts` — EventBridge rule (daily 08:00 CET), insurance-renewal Lambda (placeholder)
-- [ ] 2.7 Create `frontend-stack.ts` — S3 bucket + CloudFront distribution + OAI
-- [ ] 2.8 Create `infra/bin/app.ts` — wire all stacks together with cross-stack references
-- [ ] 2.9 Verify `cdk synth` succeeds and produces valid CloudFormation
+- [x] 2.1 Create `network-stack.ts` — VPC with 2 AZs, public + private subnets, security groups for RDS
+- [x] 2.2 Create `database-stack.ts` — RDS PostgreSQL 16 db.t3.micro instance, Secrets Manager for master credentials
+- [x] 2.3 Create `auth-stack.ts` — Cognito User Pool with custom attributes (`custom:tenant_id`, `custom:role`), app client
+- [x] 2.4 Create `tenant-registry-stack.ts` — DynamoDB table (partition key: `tenant_id`)
+- [x] 2.5 Create `api-stack.ts` — Lambda function (placeholder handler), API Gateway HTTP API with `/{proxy+}` route
+- [x] 2.6 Create `scheduler-stack.ts` — EventBridge rule (daily 08:00 CET), insurance-renewal Lambda (placeholder)
+- [x] 2.7 Create `frontend-stack.ts` — S3 bucket + CloudFront distribution + OAI
+- [x] 2.8 Create `infra/bin/app.ts` — wire all stacks together with cross-stack references
+- [x] 2.9 Verify `cdk synth` succeeds and produces valid CloudFormation
 
 ## Task 3: CI/CD Pipeline (GitHub Actions + OIDC)
 
