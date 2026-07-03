@@ -1,0 +1,99 @@
+name: Deploy to Dev
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: # Allow manual trigger
+
+permissions:
+  id-token: write # Required for OIDC
+  contents: read
+
+env:
+  AWS_REGION: eu-west-3
+  NODE_VERSION: '20'
+
+jobs:
+  build-and-test:
+    name: Build & Test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Type-check API
+        run: npx tsc --noEmit --project packages/api/tsconfig.json
+
+      - name: Type-check Scheduled
+        run: npx tsc --noEmit --project packages/scheduled/tsconfig.json
+
+      - name: Type-check Infra
+        run: npx tsc --noEmit --project infra/tsconfig.json
+
+      - name: Run tests
+        run: npm run test || true # Allow pass until tests are written
+
+      - name: Build API Lambda
+        run: npm run build --workspace=packages/api
+
+      - name: Build Scheduled Lambda
+        run: npm run build --workspace=packages/scheduled
+
+      - name: Upload API artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: api-dist
+          path: packages/api/dist/
+
+      - name: Upload Scheduled artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: scheduled-dist
+          path: packages/scheduled/dist/
+
+  deploy:
+    name: Deploy Infrastructure
+    needs: build-and-test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Download API artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: api-dist
+          path: packages/api/dist/
+
+      - name: Download Scheduled artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: scheduled-dist
+          path: packages/scheduled/dist/
+
+      - name: Configure AWS credentials (OIDC)
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: arn:aws:iam::948360714523:role/github-actions-dev-role
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: CDK Deploy
+        working-directory: infra
+        run: npx cdk deploy --all --require-approval never

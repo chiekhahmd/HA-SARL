@@ -26,10 +26,10 @@
 
 ## Task 3: CI/CD Pipeline (GitHub Actions + OIDC)
 
-- [ ] 3.1 Create `.github/workflows/deploy-dev.yml` — build, test, lint, type-check, `cdk deploy` to dev
-- [ ] 3.2 Create `.github/workflows/deploy-prod.yml` — same + manual approval gate, tag-triggered
-- [ ] 3.3 Document OIDC setup steps (IAM provider, roles, trust policies) in `docs/aws-setup.md`
-- [ ] 3.4 Document CDK bootstrap command in `docs/aws-setup.md`
+- [x] 3.1 Create `.github/workflows/deploy-dev.yml` — build, test, lint, type-check, `cdk deploy` to dev
+- [x] 3.2 Create `.github/workflows/deploy-prod.yml` — same + manual approval gate, tag-triggered
+- [x] 3.3 Document OIDC setup steps (IAM provider, roles, trust policies) in `docs/aws-setup.md`
+- [x] 3.4 Document CDK bootstrap command in `docs/aws-setup.md`
 
 ## Task 4: Database Schema & Migrations
 
