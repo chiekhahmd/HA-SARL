@@ -94,6 +94,19 @@ jobs:
           role-to-assume: arn:aws:iam::948360714523:role/github-actions-dev-role
           aws-region: ${{ env.AWS_REGION }}
 
+      - name: Clean up failed stacks (ROLLBACK_COMPLETE)
+        run: |
+          STACKS="SocietyErp-Network SocietyErp-Database SocietyErp-Auth SocietyErp-TenantRegistry SocietyErp-Api SocietyErp-Scheduler SocietyErp-Frontend"
+          for stack in $STACKS; do
+            status=$(aws cloudformation describe-stacks --stack-name $stack --query 'Stacks[0].StackStatus' --output text 2>/dev/null || echo "DOES_NOT_EXIST")
+            if [ "$status" = "ROLLBACK_COMPLETE" ]; then
+              echo "🗑️  Deleting failed stack: $stack"
+              aws cloudformation delete-stack --stack-name $stack
+              aws cloudformation wait stack-delete-complete --stack-name $stack
+              echo "✅ Deleted: $stack"
+            fi
+          done
+
       - name: CDK Deploy
         working-directory: infra
         run: npx cdk deploy --all --require-approval never

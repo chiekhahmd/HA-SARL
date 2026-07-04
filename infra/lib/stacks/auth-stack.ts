@@ -63,8 +63,7 @@ export class AuthStack extends cdk.Stack {
       readAttributes: new cognito.ClientAttributes()
         .withStandardAttributes({ email: true, fullname: true })
         .withCustomAttributes('tenant_id', 'role'),
-      writeAttributes: new cognito.ClientAttributes()
-        .withStandardAttributes({ fullname: true }),
+      // writeAttributes not specified — all mutable attributes are writable by default
     });
 
     // Outputs
