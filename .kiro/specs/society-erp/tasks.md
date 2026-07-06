@@ -42,12 +42,12 @@
 
 ## Task 5: Tenant Resolution & Multi-Tenancy Core
 
-- [ ] 5.1 Create tenant registry client (`packages/api/src/tenant/registry.ts`) — read from DynamoDB, cache in memory
-- [ ] 5.2 Create tenant DB connection manager (`packages/api/src/db/client.ts`) — pool-per-tenant, connection reuse
-- [ ] 5.3 Create tenant resolver middleware (`packages/api/src/middleware/tenant-resolver.ts`) — extract tenant_id from JWT, lookup config, attach DB to context
-- [ ] 5.4 Create module guard middleware (`packages/api/src/middleware/module-guard.ts`) — reject if module disabled for tenant
-- [ ] 5.5 Write unit tests for tenant resolution (valid tenant, missing tenant, disabled tenant)
-- [ ] 5.6 Write unit tests for module guard (enabled module passes, disabled module returns 403)
+- [x] 5.1 Create tenant registry client (`packages/api/src/tenant/registry.ts`) — read from DynamoDB, cache in memory
+- [x] 5.2 Create tenant DB connection manager (`packages/api/src/db/client.ts`) — pool-per-tenant, connection reuse
+- [x] 5.3 Create tenant resolver middleware (`packages/api/src/middleware/tenant-resolver.ts`) — extract tenant_id from JWT, lookup config, attach DB to context
+- [x] 5.4 Create module guard middleware (`packages/api/src/middleware/module-guard.ts`) — reject if module disabled for tenant
+- [x] 5.5 Write unit tests for tenant resolution (valid tenant, missing tenant, disabled tenant)
+- [x] 5.6 Write unit tests for module guard (enabled module passes, disabled module returns 403)
 
 ## Task 6: Authentication & Authorization Middleware
 
