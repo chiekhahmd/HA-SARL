@@ -59,11 +59,11 @@
 
 ## Task 7: Hono App Entry Point & Health Check
 
-- [ ] 7.1 Create `packages/api/src/index.ts` — Hono app with middleware chain, route mounting, Lambda handler export
-- [ ] 7.2 Add `/health` endpoint (public, returns 200 + version)
-- [ ] 7.3 Configure esbuild bundling for Lambda deployment (single file output)
-- [ ] 7.4 Verify local development works (`tsx watch` or `hono/dev-server`)
-- [ ] 7.5 Write integration test: health endpoint returns 200
+- [x] 7.1 Create `packages/api/src/index.ts` — Hono app with middleware chain, route mounting, Lambda handler export
+- [x] 7.2 Add `/health` endpoint (public, returns 200 + version)
+- [x] 7.3 Configure esbuild bundling for Lambda deployment (single file output)
+- [x] 7.4 Verify local development works (`tsx watch` or `hono/dev-server`)
+- [x] 7.5 Write integration test: health endpoint returns 200
 
 ## Task 8: User Management Routes
 
