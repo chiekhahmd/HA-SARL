@@ -161,7 +161,7 @@
 
 ## Task 17: Insurance Renewal Alert (Scheduled Lambda)
 
-- [ ] 17.1 Create `packages/scheduled/src/insurance-renewal.ts` — Lambda handler
+- [x] 17.1 Create `packages/scheduled/src/insurance-renewal.ts` — Lambda handler
 - [ ] 17.2 Implement: fetch all active tenants from DynamoDB
 - [ ] 17.3 Implement: for each tenant, connect to DB, query expiring insurance periods
 - [ ] 17.4 Implement: send SES email for each expiring period (vehicle + end date + tenant managers)
@@ -179,7 +179,7 @@
 
 ## Task 19: Tenant Config Endpoint
 
-- [ ] 19.1 Create `packages/api/src/routes/tenant-config.ts` — GET /tenant/config
+- [x] 19.1 Create `packages/api/src/routes/tenant-config.ts` — GET /tenant/config
 - [ ] 19.2 Return: branding (logo, colors, app_name), enabled modules, locale, currency from DynamoDB config
 - [ ] 19.3 Write unit test (returns correct config for tenant)
 

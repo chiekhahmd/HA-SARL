@@ -53,7 +53,9 @@ import { materialAllocationRoutes } from './routes/material-allocations';
 import { vehicleRoutes } from './routes/vehicles';
 import { insurancePeriodRoutes } from './routes/insurance-periods';
 import { reportRoutes } from './routes/reports';
+import { tenantConfigRoutes } from './routes/tenant-config';
 
+app.route('/tenant', tenantConfigRoutes);
 app.route('/users', userRoutes);
 app.route('/projects', projectRoutes);
 app.route('/workers', workerRoutes);
