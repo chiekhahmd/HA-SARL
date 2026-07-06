@@ -1,6 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { configureAmplify } from './auth/amplify-config';
 import { App } from './App';
+
+// Configure AWS Amplify before rendering
+configureAmplify();
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>

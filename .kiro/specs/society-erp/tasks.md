@@ -185,18 +185,18 @@
 
 ## Task 20: Frontend — Auth & Shell
 
-- [ ] 20.1 Install and configure AWS Amplify Auth library (Cognito integration)
-- [ ] 20.2 Create login page (email + password form, Cognito sign-in)
-- [ ] 20.3 Create `TenantProvider` — fetch /tenant/config after login, provide via React context
-- [ ] 20.4 Create app shell layout (sidebar navigation, header with user info, content area)
-- [ ] 20.5 Implement module-based routing (only show nav items for enabled modules)
-- [ ] 20.6 Implement role-based UI (hide admin features for workers, etc.)
-- [ ] 20.7 Apply tenant branding (logo, primary color, app name from config)
-- [ ] 20.8 Create API client service (Axios/fetch wrapper with JWT token injection)
+- [x] 20.1 Install and configure AWS Amplify Auth library (Cognito integration)
+- [x] 20.2 Create login page (email + password form, Cognito sign-in)
+- [x] 20.3 Create `TenantProvider` — fetch /tenant/config after login, provide via React context
+- [x] 20.4 Create app shell layout (sidebar navigation, header with user info, content area)
+- [x] 20.5 Implement module-based routing (only show nav items for enabled modules)
+- [x] 20.6 Implement role-based UI (hide admin features for workers, etc.)
+- [x] 20.7 Apply tenant branding (logo, primary color, app name from config)
+- [x] 20.8 Create API client service (Axios/fetch wrapper with JWT token injection)
 
 ## Task 21: Frontend — Project Pages
 
-- [ ] 21.1 Create projects list page (table: name, budget, spent, remaining, status badge)
+- [x] 21.1 Create projects list page (table: name, budget, spent, remaining, status badge)
 - [ ] 21.2 Create project detail page (budget breakdown: labor + materials, time entries list)
 - [ ] 21.3 Create project create/edit form (name, budget, description)
 - [ ] 21.4 Create project delete with confirmation (only shown if no records)
