@@ -45,19 +45,25 @@ app.get('/health', (c) => {
 
 import { userRoutes } from './routes/users';
 import { projectRoutes } from './routes/projects';
+import { workerRoutes } from './routes/workers';
+import { timeEntryRoutes } from './routes/time-entries';
+import { absenceRoutes } from './routes/absences';
+import { materialRoutes } from './routes/materials';
+import { materialAllocationRoutes } from './routes/material-allocations';
+import { vehicleRoutes } from './routes/vehicles';
+import { insurancePeriodRoutes } from './routes/insurance-periods';
+import { reportRoutes } from './routes/reports';
+
 app.route('/users', userRoutes);
 app.route('/projects', projectRoutes);
-
-// TODO: app.route('/tenant', tenantConfigRoutes);
-// TODO: app.route('/projects', projectRoutes);
-// TODO: app.route('/workers', workerRoutes);
-// TODO: app.route('/time-entries', timeEntryRoutes);
-// TODO: app.route('/absences', absenceRoutes);
-// TODO: app.route('/materials', materialRoutes);
-// TODO: app.route('/material-allocations', materialAllocationRoutes);
-// TODO: app.route('/vehicles', vehicleRoutes);
-// TODO: app.route('/insurance-periods', insurancePeriodRoutes);
-// TODO: app.route('/reports', reportRoutes);
+app.route('/workers', workerRoutes);
+app.route('/time-entries', timeEntryRoutes);
+app.route('/absences', absenceRoutes);
+app.route('/materials', materialRoutes);
+app.route('/material-allocations', materialAllocationRoutes);
+app.route('/vehicles', vehicleRoutes);
+app.route('/', insurancePeriodRoutes);
+app.route('/reports', reportRoutes);
 
 // ============================================================================
 // FALLBACK

@@ -89,7 +89,7 @@
 
 ## Task 10: Worker Management Routes
 
-- [ ] 10.1 Create `packages/api/src/routes/workers.ts` — all CRUD endpoints
+- [x] 10.1 Create `packages/api/src/routes/workers.ts` — all CRUD endpoints
 - [ ] 10.2 Implement POST /workers — create with name + cost_rate, insert initial cost_rate_history entry
 - [ ] 10.3 Implement GET /workers — list all with current cost_rate
 - [ ] 10.4 Implement GET /workers/:id — worker detail with cost rate history
@@ -100,7 +100,7 @@
 
 ## Task 11: Time Entry Routes
 
-- [ ] 11.1 Create `packages/api/src/routes/time-entries.ts` — all endpoints
+- [x] 11.1 Create `packages/api/src/routes/time-entries.ts` — all endpoints
 - [ ] 11.2 Implement POST /time-entries — create entry, compute labor_cost (hours × effective rate)
 - [ ] 11.3 Implement GET /time-entries — worker sees own, manager sees all (filterable by projectId)
 - [ ] 11.4 Implement PATCH /time-entries/:id — update hours/project, recompute labor_cost
@@ -111,7 +111,7 @@
 
 ## Task 12: Absence Management Routes
 
-- [ ] 12.1 Create `packages/api/src/routes/absences.ts` — all endpoints
+- [x] 12.1 Create `packages/api/src/routes/absences.ts` — all endpoints
 - [ ] 12.2 Implement POST /absences — create with date validation + overlap check
 - [ ] 12.3 Implement GET /absences — worker sees own, manager sees all (filterable by workerId)
 - [ ] 12.4 Implement DELETE /absences/:id — manager/admin only
@@ -121,7 +121,7 @@
 
 ## Task 13: Material Purchase Routes
 
-- [ ] 13.1 Create `packages/api/src/routes/materials.ts` — all endpoints
+- [x] 13.1 Create `packages/api/src/routes/materials.ts` — all endpoints
 - [ ] 13.2 Implement POST /materials — create with name, quantity, purchase_cost, optional supplier/date
 - [ ] 13.3 Implement GET /materials — list all with quantity and cost
 - [ ] 13.4 Implement PATCH /materials/:id — update name, supplier, etc.
@@ -131,7 +131,7 @@
 
 ## Task 14: Material Allocation Routes
 
-- [ ] 14.1 Create `packages/api/src/routes/material-allocations.ts` — all endpoints
+- [x] 14.1 Create `packages/api/src/routes/material-allocations.ts` — all endpoints
 - [ ] 14.2 Implement POST /material-allocations — allocate material to project, validate unallocated quantity
 - [ ] 14.3 Implement GET /material-allocations?projectId=:id — list allocations for a project
 - [ ] 14.4 Implement DELETE /material-allocations/:id — remove allocation
@@ -141,7 +141,7 @@
 
 ## Task 15: Vehicle Management Routes
 
-- [ ] 15.1 Create `packages/api/src/routes/vehicles.ts` — all endpoints
+- [x] 15.1 Create `packages/api/src/routes/vehicles.ts` — all endpoints
 - [ ] 15.2 Implement POST /vehicles — create with identifier + description, reject duplicate identifier
 - [ ] 15.3 Implement GET /vehicles — list all with current insurance period
 - [ ] 15.4 Implement GET /vehicles/:id — detail with all insurance periods
@@ -151,7 +151,7 @@
 
 ## Task 16: Insurance Period Routes
 
-- [ ] 16.1 Create `packages/api/src/routes/insurance-periods.ts` — all endpoints
+- [x] 16.1 Create `packages/api/src/routes/insurance-periods.ts` — all endpoints
 - [ ] 16.2 Implement POST /vehicles/:vehicleId/insurance-periods — add period, validate dates
 - [ ] 16.3 Implement GET /vehicles/:vehicleId/insurance-periods — list ordered by start_date
 - [ ] 16.4 Implement PATCH /insurance-periods/:id — update dates/insurer/policy
@@ -171,7 +171,7 @@
 
 ## Task 18: Project Spend Reports
 
-- [ ] 18.1 Create `packages/api/src/routes/reports.ts` — report endpoints
+- [x] 18.1 Create `packages/api/src/routes/reports.ts` — report endpoints
 - [ ] 18.2 Implement GET /reports/projects — all projects with budget, labor_cost, material_cost, actual_spend, remaining, over_budget flag
 - [ ] 18.3 Implement GET /reports/projects/:id — detailed single project breakdown
 - [ ] 18.4 Create reporting service — aggregate labor_cost from time_entries + allocated_cost from material_allocations
