@@ -51,11 +51,11 @@
 
 ## Task 6: Authentication & Authorization Middleware
 
-- [ ] 6.1 Create auth middleware (`packages/api/src/middleware/auth.ts`) — verify Cognito JWT, extract claims (sub, email, role, tenant_id)
-- [ ] 6.2 Create `authorize()` helper — role-based route guard (returns 403 if role not in allowed set)
-- [ ] 6.3 Create JWKS caching mechanism (fetch Cognito public keys, cache for token verification)
-- [ ] 6.4 Create error handler middleware (`packages/api/src/middleware/error-handler.ts`) — consistent error format (code + message)
-- [ ] 6.5 Write unit tests for auth middleware (valid token, expired token, missing token, wrong role)
+- [x] 6.1 Create auth middleware (`packages/api/src/middleware/auth.ts`) — verify Cognito JWT, extract claims (sub, email, role, tenant_id)
+- [x] 6.2 Create `authorize()` helper — role-based route guard (returns 403 if role not in allowed set)
+- [x] 6.3 Create JWKS caching mechanism (fetch Cognito public keys, cache for token verification)
+- [x] 6.4 Create error handler middleware (`packages/api/src/middleware/error-handler.ts`) — consistent error format (code + message)
+- [x] 6.5 Write unit tests for auth middleware (valid token, expired token, missing token, wrong role)
 
 ## Task 7: Hono App Entry Point & Health Check
 
