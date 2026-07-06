@@ -40,11 +40,15 @@ app.get('/health', (c) => {
 });
 
 // ============================================================================
-// PROTECTED ROUTES (to be added in Tasks 8-19)
+// PROTECTED ROUTES
 // ============================================================================
 
+import { userRoutes } from './routes/users';
+import { projectRoutes } from './routes/projects';
+app.route('/users', userRoutes);
+app.route('/projects', projectRoutes);
+
 // TODO: app.route('/tenant', tenantConfigRoutes);
-// TODO: app.route('/users', userRoutes);
 // TODO: app.route('/projects', projectRoutes);
 // TODO: app.route('/workers', workerRoutes);
 // TODO: app.route('/time-entries', timeEntryRoutes);

@@ -67,24 +67,24 @@
 
 ## Task 8: User Management Routes
 
-- [ ] 8.1 Create `packages/api/src/routes/users.ts` — GET /users, POST /users, PATCH /users/:id, DELETE /users/:id
-- [ ] 8.2 Implement POST /users — create Cognito user + local DB record, assign tenant_id and role
-- [ ] 8.3 Implement GET /users — list all users for tenant (admin only)
-- [ ] 8.4 Implement PATCH /users/:id — update role or deactivate
-- [ ] 8.5 Implement DELETE /users/:id — disable Cognito user + set is_active=false in DB
-- [ ] 8.6 Create Zod schemas for user requests (createUserSchema, updateUserSchema)
+- [x] 8.1 Create `packages/api/src/routes/users.ts` — GET /users, POST /users, PATCH /users/:id, DELETE /users/:id
+- [x] 8.2 Implement POST /users — create Cognito user + local DB record, assign tenant_id and role
+- [x] 8.3 Implement GET /users — list all users for tenant (admin only)
+- [x] 8.4 Implement PATCH /users/:id — update role or deactivate
+- [x] 8.5 Implement DELETE /users/:id — disable Cognito user + set is_active=false in DB
+- [x] 8.6 Create Zod schemas for user requests (createUserSchema, updateUserSchema)
 - [ ] 8.7 Write unit tests for user management (CRUD, validation errors, conflict on duplicate email)
 
 ## Task 9: Project Management Routes
 
-- [ ] 9.1 Create `packages/api/src/routes/projects.ts` — all CRUD endpoints
-- [ ] 9.2 Implement POST /projects — create with name + budget, validate budget >= 0
-- [ ] 9.3 Implement GET /projects — list all with budget and actual_spend (computed)
-- [ ] 9.4 Implement GET /projects/:id — include budget, labor_cost, material_cost, actual_spend, remaining
-- [ ] 9.5 Implement PATCH /projects/:id — update name or budget
-- [ ] 9.6 Implement DELETE /projects/:id — only if no associated time_entries or material_allocations
-- [ ] 9.7 Create Zod schemas (createProjectSchema, updateProjectSchema)
-- [ ] 9.8 Create project service (`packages/api/src/services/project-service.ts`) — actual_spend computation logic
+- [x] 9.1 Create `packages/api/src/routes/projects.ts` — all CRUD endpoints
+- [x] 9.2 Implement POST /projects — create with name + budget, validate budget >= 0
+- [x] 9.3 Implement GET /projects — list all with budget and actual_spend (computed)
+- [x] 9.4 Implement GET /projects/:id — include budget, labor_cost, material_cost, actual_spend, remaining
+- [x] 9.5 Implement PATCH /projects/:id — update name or budget
+- [x] 9.6 Implement DELETE /projects/:id — only if no associated time_entries or material_allocations
+- [x] 9.7 Create Zod schemas (createProjectSchema, updateProjectSchema)
+- [x] 9.8 Create project service (`packages/api/src/services/project-service.ts`) — actual_spend computation logic
 - [ ] 9.9 Write unit tests (CRUD, negative budget rejection, delete with records conflict)
 
 ## Task 10: Worker Management Routes
