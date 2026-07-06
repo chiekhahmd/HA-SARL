@@ -5,6 +5,13 @@ import { Layout } from './components/Layout';
 import { LoginPage } from './pages/LoginPage';
 import { DashboardPage } from './pages/DashboardPage';
 import { ProjectsPage } from './pages/ProjectsPage';
+import { WorkersPage } from './pages/WorkersPage';
+import { TimeEntriesPage } from './pages/TimeEntriesPage';
+import { AbsencesPage } from './pages/AbsencesPage';
+import { MaterialsPage } from './pages/MaterialsPage';
+import { VehiclesPage } from './pages/VehiclesPage';
+import { ReportsPage } from './pages/ReportsPage';
+import { UsersPage } from './pages/UsersPage';
 
 function AppRoutes() {
   const { isAuthenticated, isLoading } = useAuth();
@@ -27,7 +34,13 @@ function AppRoutes() {
         <Routes>
           <Route path="/" element={<DashboardPage />} />
           <Route path="/projects" element={<ProjectsPage />} />
-          {/* TODO: Add remaining pages in Tasks 22-28 */}
+          <Route path="/workers" element={<WorkersPage />} />
+          <Route path="/time-entries" element={<TimeEntriesPage />} />
+          <Route path="/absences" element={<AbsencesPage />} />
+          <Route path="/materials" element={<MaterialsPage />} />
+          <Route path="/vehicles" element={<VehiclesPage />} />
+          <Route path="/reports" element={<ReportsPage />} />
+          <Route path="/users" element={<UsersPage />} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </Layout>

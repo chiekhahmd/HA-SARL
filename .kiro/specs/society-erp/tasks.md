@@ -203,33 +203,33 @@
 
 ## Task 22: Frontend — Worker Pages
 
-- [ ] 22.1 Create workers list page (table: name, cost rate)
+- [x] 22.1 Create workers list page (table: name, cost rate)
 - [ ] 22.2 Create worker detail page (cost rate history, linked time entries)
 - [ ] 22.3 Create worker create/edit form (name, cost rate)
 
 ## Task 23: Frontend — Time Entry Pages
 
-- [ ] 23.1 Create time entry list page (filterable by project, date range)
+- [x] 23.1 Create time entry list page (filterable by project, date range)
 - [ ] 23.2 Create time entry form (select project, date picker, hours input)
 - [ ] 23.3 Show computed labor cost in real-time as user enters hours
 - [ ] 23.4 Worker view: only own entries. Manager view: all entries with worker column
 
 ## Task 24: Frontend — Absence Pages
 
-- [ ] 24.1 Create absence list page (calendar or table view, filterable by worker)
+- [x] 24.1 Create absence list page (calendar or table view, filterable by worker)
 - [ ] 24.2 Create absence form (date range picker, absence type dropdown)
 - [ ] 24.3 Show validation errors (overlap, end < start) inline
 
 ## Task 25: Frontend — Material Pages
 
-- [ ] 25.1 Create materials list page (table: name, quantity, cost, supplier)
+- [x] 25.1 Create materials list page (table: name, quantity, cost, supplier)
 - [ ] 25.2 Create material form (name, quantity, unit, cost, supplier, date)
 - [ ] 25.3 Create material allocation page (select material, select project, enter quantity + cost)
 - [ ] 25.4 Show unallocated quantity remaining on allocation form
 
 ## Task 26: Frontend — Vehicle & Insurance Pages
 
-- [ ] 26.1 Create vehicles list page (table: identifier, description, current insurance status)
+- [x] 26.1 Create vehicles list page (table: identifier, description, current insurance status)
 - [ ] 26.2 Create vehicle detail page (insurance period timeline/list)
 - [ ] 26.3 Create vehicle form (identifier, description)
 - [ ] 26.4 Create insurance period form (start date, end date, insurer, policy number)
@@ -237,14 +237,14 @@
 
 ## Task 27: Frontend — Reports Page
 
-- [ ] 27.1 Create all-projects report page (table with budget vs spend comparison)
+- [x] 27.1 Create all-projects report page (table with budget vs spend comparison)
 - [ ] 27.2 Create single-project report page (detailed breakdown: labor + materials)
 - [ ] 27.3 Add over-budget visual indicator (red highlight, warning icon)
 - [ ] 27.4 Add export to CSV functionality
 
 ## Task 28: Frontend — User Management (Admin)
 
-- [ ] 28.1 Create users list page (table: name, email, role, status)
+- [x] 28.1 Create users list page (table: name, email, role, status)
 - [ ] 28.2 Create user invite form (email, role selection)
 - [ ] 28.3 Create user edit form (change role, activate/deactivate)
 
