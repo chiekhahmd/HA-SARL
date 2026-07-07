@@ -8,7 +8,8 @@ const API_BASE = import.meta.env.VITE_API_URL || '/api';
 async function getAuthHeaders(): Promise<HeadersInit> {
   try {
     const session = await fetchAuthSession();
-    const token = session.tokens?.accessToken?.toString();
+    // Use ID token (contains custom:role and custom:tenant_id claims)
+    const token = session.tokens?.idToken?.toString();
     if (token) {
       return { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' };
     }

@@ -250,7 +250,7 @@
 
 ## Task 29: First Tenant Provisioning (HA SARL)
 
-- [ ] 29.1 Create tenant database `hasarl_db` on RDS instance
+- [x] 29.1 Create tenant database `hasarl_db` on RDS instance
 - [ ] 29.2 Run migrations against `hasarl_db`
 - [ ] 29.3 Seed system defaults (alert_lead_time = 30 days)
 - [ ] 29.4 Add HA SARL entry to DynamoDB tenant registry (modules: all, currency: TND, locale: fr-FR)

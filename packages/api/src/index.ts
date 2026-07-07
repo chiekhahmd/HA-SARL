@@ -1,5 +1,6 @@
 import { Hono } from 'hono';
 import { handle } from 'hono/aws-lambda';
+import { cors } from 'hono/cors';
 import { errorHandler } from './middleware/error-handler';
 import { authMiddleware } from './middleware/auth';
 import { tenantResolver } from './middleware/tenant-resolver';
@@ -9,6 +10,14 @@ const app = new Hono();
 // ============================================================================
 // MIDDLEWARE CHAIN (order matters)
 // ============================================================================
+
+// 0. CORS — must be FIRST, handles preflight OPTIONS before auth
+app.use('*', cors({
+  origin: '*', // TODO: restrict to tenant domains in prod
+  allowMethods: ['GET', 'POST', 'PATCH', 'DELETE', 'OPTIONS'],
+  allowHeaders: ['Authorization', 'Content-Type'],
+  maxAge: 3600,
+}));
 
 // 1. Error handler — catches all errors, returns consistent JSON format
 app.use('*', errorHandler());
