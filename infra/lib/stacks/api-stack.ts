@@ -53,6 +53,20 @@ export class ApiStack extends cdk.Stack {
     // Grant Lambda access to DB credentials in Secrets Manager
     props.dbSecret.grantRead(this.apiFunction);
 
+    // Grant Lambda access to Cognito (for user management)
+    this.apiFunction.addToRolePolicy(
+      new cdk.aws_iam.PolicyStatement({
+        effect: cdk.aws_iam.Effect.ALLOW,
+        actions: [
+          'cognito-idp:AdminCreateUser',
+          'cognito-idp:AdminDisableUser',
+          'cognito-idp:AdminUpdateUserAttributes',
+          'cognito-idp:AdminGetUser',
+        ],
+        resources: [props.userPool.userPoolArn],
+      }),
+    );
+
     // HTTP API (API Gateway v2 — cheaper than REST API)
     this.httpApi = new apigw.HttpApi(this, 'HttpApi', {
       apiName: 'society-erp-api',
