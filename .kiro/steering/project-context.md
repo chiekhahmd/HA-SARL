@@ -86,11 +86,19 @@ A React Native (Expo) mobile app is planned for a LATER phase and must reuse the
 
 ## Current state
 
-- Git initialized, first commit pushed to `origin/main` on GitHub.
-- `requirements.md` is complete (16 EARS requirements).
-- `design.md` is complete (multi-tenant SaaS architecture with Hono + CDK).
-- `tasks.md` is complete (30 tasks covering infra through frontend).
-- Client overview document created (`docs/client-overview.md`).
-- No application code yet — ready to begin implementation.
-- The user intends to adjust requirement details (absence overlap, project deletion rules,
-  date-effective cost rate) once development starts.
+- **DEPLOYED AND LIVE** at https://dyj57s5r08qsc.cloudfront.net
+- API: https://nr71uy5t94.execute-api.eu-west-3.amazonaws.com
+- Git: all code pushed to `origin/main` on GitHub.
+- CI/CD pipeline running (GitHub Actions + OIDC → CDK deploy).
+- All 7 CDK stacks deployed (Network, Database, Auth, TenantRegistry, API, Scheduler, Frontend).
+- First tenant (HA SARL) provisioned: DynamoDB config, RDS database migrated, Cognito admin user.
+- Frontend: login, dashboard, all 8 module pages with create forms.
+- Backend: 12 API endpoints, all CRUD operations, tenant-isolated.
+- 51 unit tests passing.
+
+### Remaining for polish (not blocking launch):
+- Edit/delete buttons on list items
+- Settings page (alert lead time, absence types)
+- SES email verification (for insurance alerts to actually send)
+- CSV export on reports
+- Additional unit/E2E tests
