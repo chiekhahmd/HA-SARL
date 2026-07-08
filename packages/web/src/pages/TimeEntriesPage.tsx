@@ -7,13 +7,16 @@ import { useTenant } from '../tenant/TenantProvider';
 
 interface TimeEntry { id: string; entryDate: string; hours: string; laborCost: string; notes: string | null; }
 interface Project { id: string; name: string; }
+interface Worker { id: string; name: string; }
 
 export function TimeEntriesPage() {
   const { config } = useTenant();
   const [entries, setEntries] = useState<TimeEntry[]>([]);
   const [projects, setProjects] = useState<Project[]>([]);
+  const [workers, setWorkers] = useState<Worker[]>([]);
   const [loading, setLoading] = useState(true);
   const [showForm, setShowForm] = useState(false);
+  const [formWorker, setFormWorker] = useState('');
   const [formProject, setFormProject] = useState('');
   const [formDate, setFormDate] = useState(new Date().toISOString().split('T')[0]);
   const [formHours, setFormHours] = useState('');
@@ -26,11 +29,12 @@ export function TimeEntriesPage() {
 
   async function load() {
     try {
-      const [e, p] = await Promise.all([
+      const [e, p, w] = await Promise.all([
         apiClient.get<TimeEntry[]>('/time-entries'),
         apiClient.get<Project[]>('/projects'),
+        apiClient.get<Worker[]>('/workers'),
       ]);
-      setEntries(e); setProjects(p);
+      setEntries(e); setProjects(p); setWorkers(w);
     } catch (e) { console.error(e); }
     finally { setLoading(false); }
   }
@@ -41,6 +45,7 @@ export function TimeEntriesPage() {
     setSubmitting(true);
     try {
       await apiClient.post('/time-entries', {
+        workerId: formWorker || undefined,
         projectId: formProject,
         entryDate: formDate,
         hours: parseFloat(formHours),
@@ -66,7 +71,14 @@ export function TimeEntriesPage() {
       {showForm && (
         <form onSubmit={handleCreate} style={{ background: '#fff', padding: '1.5rem', borderRadius: 8, marginBottom: '1.5rem' }}>
           {formError && <div style={{ color: '#c00', marginBottom: '1rem', fontSize: '0.9rem' }}>{formError}</div>}
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '1rem', marginBottom: '1rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr 1fr', gap: '1rem', marginBottom: '1rem' }}>
+            <div>
+              <label style={{ display: 'block', marginBottom: 4, fontSize: '0.85rem' }}>Worker *</label>
+              <select value={formWorker} onChange={(e) => setFormWorker(e.target.value)} required style={{ width: '100%', padding: '0.5rem', border: '1px solid #ddd', borderRadius: 4, boxSizing: 'border-box' }}>
+                <option value="">Select worker...</option>
+                {workers.map((w) => <option key={w.id} value={w.id}>{w.name}</option>)}
+              </select>
+            </div>
             <div>
               <label style={{ display: 'block', marginBottom: 4, fontSize: '0.85rem' }}>Project *</label>
               <select value={formProject} onChange={(e) => setFormProject(e.target.value)} required style={{ width: '100%', padding: '0.5rem', border: '1px solid #ddd', borderRadius: 4, boxSizing: 'border-box' }}>

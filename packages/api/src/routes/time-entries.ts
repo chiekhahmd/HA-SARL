@@ -24,11 +24,28 @@ timeEntryRoutes.post('/', authorize('worker', 'manager', 'admin'), zValidator('j
   const body = c.req.valid('json');
   const db = c.get('tenantDb');
   const userId = c.get('userId');
+  const role = c.get('userRole');
 
-  // Find the worker record for the current user
-  const [worker] = await db.select().from(workers).where(eq(workers.userId, userId)).limit(1);
-  if (!worker) {
-    throw new HTTPException(400, { message: 'No worker record associated with your user account' });
+  let workerId: string;
+
+  if (role === 'worker') {
+    // Workers can only log time for themselves
+    const [worker] = await db.select().from(workers).where(eq(workers.userId, userId)).limit(1);
+    if (!worker) {
+      throw new HTTPException(400, { message: 'No worker record associated with your user account' });
+    }
+    workerId = worker.id;
+  } else {
+    // Managers/Admins must specify which worker via workerId in body
+    if (!body.workerId) {
+      throw new HTTPException(400, { message: 'workerId is required for managers/admins' });
+    }
+    // Verify worker exists
+    const [worker] = await db.select().from(workers).where(eq(workers.id, body.workerId)).limit(1);
+    if (!worker) {
+      throw new HTTPException(400, { message: 'Worker not found' });
+    }
+    workerId = body.workerId;
   }
 
   // Verify project exists
@@ -38,7 +55,7 @@ timeEntryRoutes.post('/', authorize('worker', 'manager', 'admin'), zValidator('j
   }
 
   // Get effective cost rate for the entry date
-  const effectiveRate = await getEffectiveRate(db, worker.id, body.entryDate);
+  const effectiveRate = await getEffectiveRate(db, workerId, body.entryDate);
 
   // Compute labor cost
   const laborCost = body.hours * effectiveRate;
@@ -46,7 +63,7 @@ timeEntryRoutes.post('/', authorize('worker', 'manager', 'admin'), zValidator('j
   const [entry] = await db
     .insert(timeEntries)
     .values({
-      workerId: worker.id,
+      workerId,
       projectId: body.projectId,
       entryDate: body.entryDate,
       hours: body.hours.toFixed(2),

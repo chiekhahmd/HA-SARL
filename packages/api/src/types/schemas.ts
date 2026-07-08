@@ -61,6 +61,7 @@ export const updateWorkerSchema = z.object({
 // ============================================================================
 
 export const createTimeEntrySchema = z.object({
+  workerId: z.string().uuid().optional(), // Required for manager/admin, auto-resolved for worker
   projectId: z.string().uuid(),
   entryDate: z.string().date(), // ISO date string (YYYY-MM-DD)
   hours: z.number().gt(0, 'Hours must be greater than 0').lte(24, 'Hours cannot exceed 24'),
