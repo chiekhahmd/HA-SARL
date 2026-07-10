@@ -10,7 +10,7 @@
 - [x] 1.6 Set up `infra` — CDK TypeScript project (`cdk init app --language typescript`)
 - [x] 1.7 Configure ESLint + Prettier at root level (shared config)
 - [x] 1.8 Configure Vitest at root level (workspace test config)
-- [ ] 1.9 Update `.gitignore` for CDK, build artifacts, env files
+- [x] 1.9 Update `.gitignore` for CDK, build artifacts, env files
 
 ## Task 2: CDK Infrastructure — Foundation Stacks
 
@@ -73,7 +73,7 @@
 - [x] 8.4 Implement PATCH /users/:id — update role or deactivate
 - [x] 8.5 Implement DELETE /users/:id — disable Cognito user + set is_active=false in DB
 - [x] 8.6 Create Zod schemas for user requests (createUserSchema, updateUserSchema)
-- [ ] 8.7 Write unit tests for user management (CRUD, validation errors, conflict on duplicate email)
+- [x] 8.7 Write unit tests for user management (CRUD, validation errors, conflict on duplicate email)
 
 ## Task 9: Project Management Routes
 
@@ -85,103 +85,103 @@
 - [x] 9.6 Implement DELETE /projects/:id — only if no associated time_entries or material_allocations
 - [x] 9.7 Create Zod schemas (createProjectSchema, updateProjectSchema)
 - [x] 9.8 Create project service (`packages/api/src/services/project-service.ts`) — actual_spend computation logic
-- [ ] 9.9 Write unit tests (CRUD, negative budget rejection, delete with records conflict)
+- [x] 9.9 Write unit tests (CRUD, negative budget rejection, delete with records conflict)
 
 ## Task 10: Worker Management Routes
 
 - [x] 10.1 Create `packages/api/src/routes/workers.ts` — all CRUD endpoints
-- [ ] 10.2 Implement POST /workers — create with name + cost_rate, insert initial cost_rate_history entry
-- [ ] 10.3 Implement GET /workers — list all with current cost_rate
-- [ ] 10.4 Implement GET /workers/:id — worker detail with cost rate history
-- [ ] 10.5 Implement PATCH /workers/:id — update name or cost_rate (insert new cost_rate_history record)
-- [ ] 10.6 Create Zod schemas (createWorkerSchema, updateWorkerSchema)
-- [ ] 10.7 Create cost rate lookup service — resolve effective rate for a given date
-- [ ] 10.8 Write unit tests (CRUD, negative rate rejection, rate history insertion)
+- [x] 10.2 Implement POST /workers — create with name + cost_rate, insert initial cost_rate_history entry
+- [x] 10.3 Implement GET /workers — list all with current cost_rate
+- [x] 10.4 Implement GET /workers/:id — worker detail with cost rate history
+- [x] 10.5 Implement PATCH /workers/:id — update name or cost_rate (insert new cost_rate_history record)
+- [x] 10.6 Create Zod schemas (createWorkerSchema, updateWorkerSchema)
+- [x] 10.7 Create cost rate lookup service — resolve effective rate for a given date
+- [x] 10.8 Write unit tests (CRUD, negative rate rejection, rate history insertion)
 
 ## Task 11: Time Entry Routes
 
 - [x] 11.1 Create `packages/api/src/routes/time-entries.ts` — all endpoints
-- [ ] 11.2 Implement POST /time-entries — create entry, compute labor_cost (hours × effective rate)
-- [ ] 11.3 Implement GET /time-entries — worker sees own, manager sees all (filterable by projectId)
-- [ ] 11.4 Implement PATCH /time-entries/:id — update hours/project, recompute labor_cost
-- [ ] 11.5 Implement DELETE /time-entries/:id — manager/admin only
-- [ ] 11.6 Create Zod schemas (createTimeEntrySchema, updateTimeEntrySchema)
-- [ ] 11.7 Validate: hours between 0-24, project exists, worker exists
-- [ ] 11.8 Write unit tests (CRUD, labor_cost computation, validation errors, role-based access)
+- [x] 11.2 Implement POST /time-entries — create entry, compute labor_cost (hours × effective rate)
+- [x] 11.3 Implement GET /time-entries — worker sees own, manager sees all (filterable by projectId)
+- [x] 11.4 Implement PATCH /time-entries/:id — update hours/project, recompute labor_cost
+- [x] 11.5 Implement DELETE /time-entries/:id — manager/admin only
+- [x] 11.6 Create Zod schemas (createTimeEntrySchema, updateTimeEntrySchema)
+- [x] 11.7 Validate: hours between 0-24, project exists, worker exists
+- [x] 11.8 Write unit tests (CRUD, labor_cost computation, validation errors, role-based access)
 
 ## Task 12: Absence Management Routes
 
 - [x] 12.1 Create `packages/api/src/routes/absences.ts` — all endpoints
-- [ ] 12.2 Implement POST /absences — create with date validation + overlap check
-- [ ] 12.3 Implement GET /absences — worker sees own, manager sees all (filterable by workerId)
-- [ ] 12.4 Implement DELETE /absences/:id — manager/admin only
-- [ ] 12.5 Create absence overlap detection service (query existing absences, check date range intersection)
-- [ ] 12.6 Create Zod schemas (createAbsenceSchema)
-- [ ] 12.7 Write unit tests (CRUD, end < start rejection, overlap conflict, role-based access)
+- [x] 12.2 Implement POST /absences — create with date validation + overlap check
+- [x] 12.3 Implement GET /absences — worker sees own, manager sees all (filterable by workerId)
+- [x] 12.4 Implement DELETE /absences/:id — manager/admin only
+- [x] 12.5 Create absence overlap detection service (query existing absences, check date range intersection)
+- [x] 12.6 Create Zod schemas (createAbsenceSchema)
+- [x] 12.7 Write unit tests (CRUD, end < start rejection, overlap conflict, role-based access)
 
 ## Task 13: Material Purchase Routes
 
 - [x] 13.1 Create `packages/api/src/routes/materials.ts` — all endpoints
-- [ ] 13.2 Implement POST /materials — create with name, quantity, purchase_cost, optional supplier/date
-- [ ] 13.3 Implement GET /materials — list all with quantity and cost
-- [ ] 13.4 Implement PATCH /materials/:id — update name, supplier, etc.
-- [ ] 13.5 Create Zod schemas (createMaterialSchema, updateMaterialSchema)
-- [ ] 13.6 Validate: quantity > 0, purchase_cost >= 0
-- [ ] 13.7 Write unit tests (CRUD, validation errors)
+- [x] 13.2 Implement POST /materials — create with name, quantity, purchase_cost, optional supplier/date
+- [x] 13.3 Implement GET /materials — list all with quantity and cost
+- [x] 13.4 Implement PATCH /materials/:id — update name, supplier, etc.
+- [x] 13.5 Create Zod schemas (createMaterialSchema, updateMaterialSchema)
+- [x] 13.6 Validate: quantity > 0, purchase_cost >= 0
+- [x] 13.7 Write unit tests (CRUD, validation errors)
 
 ## Task 14: Material Allocation Routes
 
 - [x] 14.1 Create `packages/api/src/routes/material-allocations.ts` — all endpoints
-- [ ] 14.2 Implement POST /material-allocations — allocate material to project, validate unallocated quantity
-- [ ] 14.3 Implement GET /material-allocations?projectId=:id — list allocations for a project
-- [ ] 14.4 Implement DELETE /material-allocations/:id — remove allocation
-- [ ] 14.5 Create allocation service — compute unallocated quantity for a material
-- [ ] 14.6 Create Zod schemas (createMaterialAllocationSchema)
-- [ ] 14.7 Write unit tests (allocate, over-allocate rejection, delete, project spend update)
+- [x] 14.2 Implement POST /material-allocations — allocate material to project, validate unallocated quantity
+- [x] 14.3 Implement GET /material-allocations?projectId=:id — list allocations for a project
+- [x] 14.4 Implement DELETE /material-allocations/:id — remove allocation
+- [x] 14.5 Create allocation service — compute unallocated quantity for a material
+- [x] 14.6 Create Zod schemas (createMaterialAllocationSchema)
+- [x] 14.7 Write unit tests (allocate, over-allocate rejection, delete, project spend update)
 
 ## Task 15: Vehicle Management Routes
 
 - [x] 15.1 Create `packages/api/src/routes/vehicles.ts` — all endpoints
-- [ ] 15.2 Implement POST /vehicles — create with identifier + description, reject duplicate identifier
-- [ ] 15.3 Implement GET /vehicles — list all with current insurance period
-- [ ] 15.4 Implement GET /vehicles/:id — detail with all insurance periods
-- [ ] 15.5 Implement PATCH /vehicles/:id — update description
-- [ ] 15.6 Create Zod schemas (createVehicleSchema, updateVehicleSchema)
-- [ ] 15.7 Write unit tests (CRUD, duplicate identifier conflict)
+- [x] 15.2 Implement POST /vehicles — create with identifier + description, reject duplicate identifier
+- [x] 15.3 Implement GET /vehicles — list all with current insurance period
+- [x] 15.4 Implement GET /vehicles/:id — detail with all insurance periods
+- [x] 15.5 Implement PATCH /vehicles/:id — update description
+- [x] 15.6 Create Zod schemas (createVehicleSchema, updateVehicleSchema)
+- [x] 15.7 Write unit tests (CRUD, duplicate identifier conflict)
 
 ## Task 16: Insurance Period Routes
 
 - [x] 16.1 Create `packages/api/src/routes/insurance-periods.ts` — all endpoints
-- [ ] 16.2 Implement POST /vehicles/:vehicleId/insurance-periods — add period, validate dates
-- [ ] 16.3 Implement GET /vehicles/:vehicleId/insurance-periods — list ordered by start_date
-- [ ] 16.4 Implement PATCH /insurance-periods/:id — update dates/insurer/policy
-- [ ] 16.5 Create current-period resolution logic (latest end_date = current)
-- [ ] 16.6 Create Zod schemas (createInsurancePeriodSchema, updateInsurancePeriodSchema)
-- [ ] 16.7 Write unit tests (CRUD, end < start rejection, current period identification)
+- [x] 16.2 Implement POST /vehicles/:vehicleId/insurance-periods — add period, validate dates
+- [x] 16.3 Implement GET /vehicles/:vehicleId/insurance-periods — list ordered by start_date
+- [x] 16.4 Implement PATCH /insurance-periods/:id — update dates/insurer/policy
+- [x] 16.5 Create current-period resolution logic (latest end_date = current)
+- [x] 16.6 Create Zod schemas (createInsurancePeriodSchema, updateInsurancePeriodSchema)
+- [x] 16.7 Write unit tests (CRUD, end < start rejection, current period identification)
 
 ## Task 17: Insurance Renewal Alert (Scheduled Lambda)
 
 - [x] 17.1 Create `packages/scheduled/src/insurance-renewal.ts` — Lambda handler
-- [ ] 17.2 Implement: fetch all active tenants from DynamoDB
-- [ ] 17.3 Implement: for each tenant, connect to DB, query expiring insurance periods
-- [ ] 17.4 Implement: send SES email for each expiring period (vehicle + end date + tenant managers)
-- [ ] 17.5 Implement: set `alert_sent = true` on success, log failure on SES error
-- [ ] 17.6 Create email template (HTML + text) for renewal alert
-- [ ] 17.7 Write unit tests (identifies correct periods, respects lead_time, skips already-sent)
+- [x] 17.2 Implement: fetch all active tenants from DynamoDB
+- [x] 17.3 Implement: for each tenant, connect to DB, query expiring insurance periods
+- [x] 17.4 Implement: send SES email for each expiring period (vehicle + end date + tenant managers)
+- [x] 17.5 Implement: set `alert_sent = true` on success, log failure on SES error
+- [x] 17.6 Create email template (HTML + text) for renewal alert
+- [x] 17.7 Write unit tests (identifies correct periods, respects lead_time, skips already-sent)
 
 ## Task 18: Project Spend Reports
 
 - [x] 18.1 Create `packages/api/src/routes/reports.ts` — report endpoints
-- [ ] 18.2 Implement GET /reports/projects — all projects with budget, labor_cost, material_cost, actual_spend, remaining, over_budget flag
-- [ ] 18.3 Implement GET /reports/projects/:id — detailed single project breakdown
-- [ ] 18.4 Create reporting service — aggregate labor_cost from time_entries + allocated_cost from material_allocations
-- [ ] 18.5 Write unit tests (correct aggregation, over-budget detection, empty project report)
+- [x] 18.2 Implement GET /reports/projects — all projects with budget, labor_cost, material_cost, actual_spend, remaining, over_budget flag
+- [x] 18.3 Implement GET /reports/projects/:id — detailed single project breakdown
+- [x] 18.4 Create reporting service — aggregate labor_cost from time_entries + allocated_cost from material_allocations
+- [x] 18.5 Write unit tests (correct aggregation, over-budget detection, empty project report)
 
 ## Task 19: Tenant Config Endpoint
 
 - [x] 19.1 Create `packages/api/src/routes/tenant-config.ts` — GET /tenant/config
-- [ ] 19.2 Return: branding (logo, colors, app_name), enabled modules, locale, currency from DynamoDB config
-- [ ] 19.3 Write unit test (returns correct config for tenant)
+- [x] 19.2 Return: branding (logo, colors, app_name), enabled modules, locale, currency from DynamoDB config
+- [x] 19.3 Write unit test (returns correct config for tenant)
 
 ## Task 20: Frontend — Auth & Shell
 
@@ -198,64 +198,64 @@
 
 - [x] 21.1 Create projects list page (table: name, budget, spent, remaining, status badge)
 - [ ] 21.2 Create project detail page (budget breakdown: labor + materials, time entries list)
-- [ ] 21.3 Create project create/edit form (name, budget, description)
+- [x] 21.3 Create project create/edit form (name, budget, description)
 - [ ] 21.4 Create project delete with confirmation (only shown if no records)
 
 ## Task 22: Frontend — Worker Pages
 
 - [x] 22.1 Create workers list page (table: name, cost rate)
 - [ ] 22.2 Create worker detail page (cost rate history, linked time entries)
-- [ ] 22.3 Create worker create/edit form (name, cost rate)
+- [x] 22.3 Create worker create/edit form (name, cost rate)
 
 ## Task 23: Frontend — Time Entry Pages
 
 - [x] 23.1 Create time entry list page (filterable by project, date range)
-- [ ] 23.2 Create time entry form (select project, date picker, hours input)
+- [x] 23.2 Create time entry form (select project, date picker, hours input)
 - [ ] 23.3 Show computed labor cost in real-time as user enters hours
-- [ ] 23.4 Worker view: only own entries. Manager view: all entries with worker column
+- [x] 23.4 Worker view: only own entries. Manager view: all entries with worker column
 
 ## Task 24: Frontend — Absence Pages
 
 - [x] 24.1 Create absence list page (calendar or table view, filterable by worker)
-- [ ] 24.2 Create absence form (date range picker, absence type dropdown)
-- [ ] 24.3 Show validation errors (overlap, end < start) inline
+- [x] 24.2 Create absence form (date range picker, absence type dropdown)
+- [x] 24.3 Show validation errors (overlap, end < start) inline
 
 ## Task 25: Frontend — Material Pages
 
 - [x] 25.1 Create materials list page (table: name, quantity, cost, supplier)
-- [ ] 25.2 Create material form (name, quantity, unit, cost, supplier, date)
-- [ ] 25.3 Create material allocation page (select material, select project, enter quantity + cost)
+- [x] 25.2 Create material form (name, quantity, unit, cost, supplier, date)
+- [x] 25.3 Create material allocation page (select material, select project, enter quantity + cost)
 - [ ] 25.4 Show unallocated quantity remaining on allocation form
 
 ## Task 26: Frontend — Vehicle & Insurance Pages
 
 - [x] 26.1 Create vehicles list page (table: identifier, description, current insurance status)
 - [ ] 26.2 Create vehicle detail page (insurance period timeline/list)
-- [ ] 26.3 Create vehicle form (identifier, description)
-- [ ] 26.4 Create insurance period form (start date, end date, insurer, policy number)
-- [ ] 26.5 Visual indicator: expired, active, expiring soon
+- [x] 26.3 Create vehicle form (identifier, description)
+- [x] 26.4 Create insurance period form (start date, end date, insurer, policy number)
+- [x] 26.5 Visual indicator: expired, active, expiring soon
 
 ## Task 27: Frontend — Reports Page
 
 - [x] 27.1 Create all-projects report page (table with budget vs spend comparison)
 - [ ] 27.2 Create single-project report page (detailed breakdown: labor + materials)
-- [ ] 27.3 Add over-budget visual indicator (red highlight, warning icon)
+- [x] 27.3 Add over-budget visual indicator (red highlight, warning icon)
 - [ ] 27.4 Add export to CSV functionality
 
 ## Task 28: Frontend — User Management (Admin)
 
 - [x] 28.1 Create users list page (table: name, email, role, status)
-- [ ] 28.2 Create user invite form (email, role selection)
+- [x] 28.2 Create user invite form (email, role selection)
 - [ ] 28.3 Create user edit form (change role, activate/deactivate)
 
 ## Task 29: First Tenant Provisioning (HA SARL)
 
 - [x] 29.1 Create tenant database `hasarl_db` on RDS instance
-- [ ] 29.2 Run migrations against `hasarl_db`
-- [ ] 29.3 Seed system defaults (alert_lead_time = 30 days)
-- [ ] 29.4 Add HA SARL entry to DynamoDB tenant registry (modules: all, currency: TND, locale: fr-FR)
-- [ ] 29.5 Create Cognito admin user for the business owner
-- [ ] 29.6 Verify end-to-end: login → see dashboard → create a project
+- [x] 29.2 Run migrations against `hasarl_db`
+- [x] 29.3 Seed system defaults (alert_lead_time = 30 days)
+- [x] 29.4 Add HA SARL entry to DynamoDB tenant registry (modules: all, currency: TND, locale: fr-FR)
+- [x] 29.5 Create Cognito admin user for the business owner
+- [x] 29.6 Verify end-to-end: login → see dashboard → create a project
 
 ## Task 30: End-to-End Testing & Polish
 
