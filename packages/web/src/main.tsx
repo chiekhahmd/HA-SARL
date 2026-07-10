@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { configureAmplify } from './auth/amplify-config';
 import { App } from './App';
+import './styles.css';
 
 // Configure AWS Amplify before rendering
 configureAmplify();

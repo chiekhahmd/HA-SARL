@@ -66,7 +66,8 @@ export function LoginPage() {
           background: '#fff',
           padding: '2rem',
           borderRadius: 8,
-          width: 360,
+          width: '100%',
+          maxWidth: 360,
           boxShadow: '0 4px 20px rgba(0,0,0,0.3)',
         }}
       >

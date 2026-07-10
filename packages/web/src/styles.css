@@ -1,0 +1,63 @@
+/* Global responsive styles */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Responsive tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  /* Tables scroll horizontally on mobile */
+  table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Responsive grid forms: stack on mobile */
+  div[style*="gridTemplateColumns"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Make buttons full-width on mobile */
+  button[type="submit"] {
+    width: 100%;
+  }
+
+  /* Adjust page headers */
+  h1 {
+    font-size: 1.25rem !important;
+  }
+
+  /* Stack page header + button */
+  div[style*="justifyContent: 'space-between'"] {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 0.75rem !important;
+  }
+}
+
+/* Form inputs responsive */
+input, select {
+  font-size: 16px; /* Prevents iOS zoom on focus */
+}
+
+/* Card-like form containers */
+@media (max-width: 768px) {
+  form {
+    padding: 1rem !important;
+  }
+}
